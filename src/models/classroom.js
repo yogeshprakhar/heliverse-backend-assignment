@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose,{Schema} from "mongoose";
 
 const classSchema = new mongoose.Schema({
   name: {
@@ -6,13 +6,13 @@ const classSchema = new mongoose.Schema({
     required: true,
   },
   schedule: [{
-    day: {
+    day: [{
       type: String,
       enum: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
       required: true,
-    },
+    }],
     startTime: {
-      type: String,  // You can use String to store time in "HH:MM AM/PM" format
+      type: String,  
       required: true,
     },
     endTime: {

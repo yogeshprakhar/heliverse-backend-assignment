@@ -4,6 +4,7 @@ import "dotenv/config.js"
 import cors from "cors"
 import cookieParser from "cookie-parser";
 import userRoute from "./src/routes/UserRoute.js"
+import classRoute from "./src/routes/ClassRoute.js"
 
 mongoose
   .connect(process.env.MONGODB_CONNECTION_STRING)
@@ -26,6 +27,7 @@ app.use((req, res, next) => {
 
 
 app.use("/api/user",userRoute)
+app.use("/api/class",classRoute)
 
 app.listen(8000,()=>{
     console.log("server started at localhost 8000")
